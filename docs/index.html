@@ -102,32 +102,75 @@
   </main>
 
   <footer>
-	<!--start of Tawk.to Script-->
-	  <script type="text/javascript">
-		  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-		  (function(){
-			  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-			  s1.async=true;
-			  s1.src='https://embed.tawk.to/68bf265d9d7125192116255d/1j4laroho';
-			  s1.charset='UTF-8';
-			  s1.setAttribute('crossorigin','*');
-			  s0.parentNode.insertBefore(s1,s0);
-		  })();
-	  </script>
-	  <!--End of Tawk.to Script--><!--Start of Tawk.to Script-->
-	  <script type="text/javascript">
-		  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-		  (function(){
-			  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-			  s1.async=true;
-			  s1.src='https://embed.tawk.to/68bf265d9d7125192116255d/1j4laroho';
-			  s1.charset='UTF-8';
-			  s1.setAttribute('crossorigin','*');
-			  s0.parentNode.insertBefore(s1,s0);
-		  })();
-	  </script>
-	  <!--End of Tawk.to Script-->
   </footer>
+  <!-- WhatsApp Chat Widget (simple) -->
+<style>
+/* small styles — tweak as you like */
+#wchat-btn { position: fixed; right: 20px; bottom: 20px; z-index: 9999; }
+#wchat-box { display:none; position:fixed; right:20px; bottom:80px; width:320px; max-width:90vw; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.15); font-family:Arial; }
+#wchat-header { background:#25D366; color:#fff; padding:10px; border-radius:8px 8px 0 0; }
+#wchat-body { padding:10px; }
+#wchat-body textarea { width:100%; height:90px; resize:vertical; }
+#wchat-actions { display:flex; gap:8px; justify-content:flex-end; padding:10px; }
+.btn { padding:8px 10px; border-radius:6px; border:none; cursor:pointer; }
+.btn-primary { background:#128C7E; color:white; }
+.btn-light { background:#f2f2f2; }
+</style>
+
+<div id="wchat-btn">
+	  <button id="open-chat" class="btn btn-primary">💬 Chat via WhatsApp</button>
+</div>
+
+<div id="wchat-box" role="dialog" aria-label="WhatsApp chat">
+	  <div id="wchat-header"><strong>Chat on WhatsApp</strong></div>
+	    <div id="wchat-body">
+		        <p>Type your message and click <em>Open WhatsApp</em>. This will open WhatsApp with a pre-filled message to my number.</p>
+			    <input id="visitor-name" placeholder="Your name (optional)" style="width:100%; margin-bottom:8px; padding:8px;"/>
+			        <input id="visitor-email" placeholder="Your email (optional)" style="width:100%; margin-bottom:8px; padding:8px;"/>
+				    <textarea id="visitor-msg" placeholder="Write your message..." required></textarea>
+				      </div>
+				        <div id="wchat-actions">
+						    <button class="btn btn-light" id="close-chat">Close</button>
+						        <button class="btn btn-primary" id="open-whatsapp">Open WhatsApp</button>
+							  </div>
+</div>
+
+<script>
+	  // === EDIT THIS: put your phone number here in international format without + or leading zeros ===
+	  // Example India: 919632425860
+	  const MY_WHATSAPP_NUMBER = "919632425860";
+
+	    const openBtn = document.getElementById('open-chat');
+	      const box = document.getElementById('wchat-box');
+	        const closeBtn = document.getElementById('close-chat');
+		  const openWhats = document.getElementById('open-whatsapp');
+
+		    openBtn.addEventListener('click', ()=> box.style.display='block');
+		      closeBtn.addEventListener('click', ()=> box.style.display='none');
+
+		        openWhats.addEventListener('click', ()=> {
+			    const name = document.getElementById('visitor-name').value.trim();
+			        const email = document.getElementById('visitor-email').value.trim();
+				    const msg = document.getElementById('visitor-msg').value.trim();
+
+				        if(!msg) { alert('Please type a message.'); return; }
+
+					    // build a friendly prefilled message
+					        let full = "";
+						    if(name) full += `Name: ${name}\n`;
+						        if(email) full += `Email: ${email}\n`;
+							    full += `Message: ${msg}`;
+
+							        // URL encode
+								    const encoded = encodeURIComponent(full);
+
+								        // wa.me link opens WhatsApp chat with prefilled message (works on mobile & web)
+									    const url = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${encoded}`;
+
+									        // open in new tab/window — if visitor is on mobile and has WhatsApp, it opens the app
+										    window.open(url, '_blank');
+										      });
+</script>
 
 </body>
 </html>
