@@ -14,7 +14,7 @@ VPC Peering between 2 accounts in different availability zone .
 - Usage
 
 - Project Structure
-- .
+ .
 ├── Readme.md
 ├── docs
 │   ├── screenshot.md
@@ -26,3 +26,4 @@ VPC Peering between 2 accounts in different availability zone .
     ├── outputs.tf
     ├── provider.tf
     └── variables.tf
+
