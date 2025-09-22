@@ -11,6 +11,7 @@ VPC Peering between 2 accounts in different availability zone .
 - [Contributing](#contributing)
 - [License](#license)
 
+#about : Ensure VPC peering connection between VPC of different Avilability Zones 
 - Usage
 
 - Project Structure
@@ -27,6 +28,7 @@ VPC Peering between 2 accounts in different availability zone .
     ├── provider.tf
     └── variables.tf
  
+
 
 
 
