@@ -15,15 +15,19 @@ VPC Peering between 2 accounts in different availability zone .
 
 - Project Structure
  .
-├── Readme.md
-├── docs
-│   ├── screenshot.md
-│   └── use-case.md
-├── scripts
-│   └── verify_connectivity.sh
-└── terraform
+  ├── Readme.md
+  ├── docs
+  │   ├── screenshot.md
+  │   └── use-case.md
+  ├── scripts
+  │   └── verify_connectivity.sh
+  └── terraform
     ├── main.tf
     ├── outputs.tf
     ├── provider.tf
     └── variables.tf
+ 
+
+
+
 
